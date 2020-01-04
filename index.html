@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Frontminders | Chat</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../Media/LogoFavicon.png" />
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    body {
+      background: #3FA6C6;
+      background: -webkit-linear-gradient(top left, #3FA6C6, #ACDFE9);
+      background: -moz-linear-gradient(top left, #3FA6C6, #ACDFE9);
+      background: linear-gradient(to bottom right, #3FA6C6, #ACDFE9);
+      height: 110%;
+    }
+    #message-container {
+      width: 60%;
+      max-width: 1200px;
+      font-family: sans-serif;
+      font-size: 16px;
+      height: 500px;
+      margin-top: 140px;
+    }
+    #message-container div {
+      background-color: rgb(126, 208, 223);
+      padding: 16px;
+      margin-top: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    #message-container div:nth-child(2n) {
+      background-color: rgb(192, 192, 192);
+      margin-top: 8px;
+      border-radius: 10px;
+    }
+    #send-container {
+      position: fixed;
+      padding: 30px;
+      top: -20px;
+      max-width: 1200px;
+      width: 60%;
+      display: flex;
+      height: 40px;
+    }
+    #message-input {
+      flex-grow: 1;
+      border-radius: 10px;
+      outline: none;
+      font-size: 19px;
+      height: 40px;
+      border: 2px solid black;
+    }
+    .bar {
+      position: fixed;
+      text-align: center;
+      display: flex;
+      top: 0%;
+      height: 120px;
+      width: 100%;
+      background: rgb(128, 195, 221);
+      justify-content: center;
+    }
+    #send-button {
+      background: #3FA6C6;
+      border-radius: 30px;
+      position: fixed;
+      top: 63px;
+      height: 50px;
+      width: 60%;
+      outline: none;
+      color: white;
+      font-size: 20px;
+      border: 2px solid rgb(0, 137, 161);
+    }
+    #photo {
+      position: fixed;
+      top: 85%;
+      left: 85%;
+      height: 100px;
+      display: none;
+    }
+    #arrow {
+      position: fixed;
+      top: 25%;
+      height: 450px;
+      display: none;
+    }
+    #arrow:hover, #photo:hover {
+      cursor: pointer;
+    }
+    #indexname {
+      color: rgb(255, 255, 255);
+      font-size: 20px;
+      position: fixed;
+      top: 83px;
+      left: 47.5%;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="bar">
+        <form id="send-container">
+            <input type="text" id="message-input" autocomplete="off" placeholder="Escribe tu mensaje...">
+            <button type="submit" id="send-button">Enviar</button>
+            <h1 id="indexname">Error</h1>
+        </form>
+      </div>
+  <div id="message-container"></div>
+  <img src="newmsg.png" title="Photo by NounProject" id="photo">
+  <img src="arrow.png" title="Photo by Mohit Gandhi" id="arrow">
+  <audio src="tone.mp3" id="audio"></audio>
+</body>
+</html>
